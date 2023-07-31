@@ -1,0 +1,69 @@
+//Tutorial 10
+//Exercise 7
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mathematical Operations</title>
+</head>
+<body>
+    <h2>Mathematical Operations</h2>
+    <button onclick="performMathOperations()">Perform Operations</button>
+
+    <script>
+        function performMathOperations() {
+            const num1 = parseFloat(prompt('Enter the first number:'));
+            const num2 = parseFloat(prompt('Enter the second number:'));
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert('Invalid input. Please enter valid numbers.');
+                return;
+            }
+
+            const addition = num1 + num2;
+            const subtraction = num1 - num2;
+            const multiplication = num1 * num2;
+            const division = num1 / num2;
+
+            const result = `Addition: ${addition}\nSubtraction: ${subtraction}\nMultiplication: ${multiplication}\nDivision: ${division}`;
+            alert(result);
+        }
+    </script>
+</body>
+</html>
+
+
+//Exercise 8
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extract Year of Birth</title>
+</head>
+<body>
+    <h2>Extract Year of Birth from NIC</h2>
+    <button onclick="extractYearOfBirth()">Extract Year</button>
+
+    <script>
+        function extractYearOfBirth() {
+            const nicNumber = prompt('Enter the NIC number:');
+            const yearOfBirth = getYearOfBirthFromNIC(nicNumber);
+
+            if (yearOfBirth) {
+                alert(`Year of Birth: ${yearOfBirth}`);
+            } else {
+                alert('Invalid NIC number. Please enter a valid NIC number.');
+            }
+        }
+
+        function getYearOfBirthFromNIC(nic) {
+          
+            const yearPart = nic.substr(0, 2);
+            const yearPrefix = parseInt(yearPart) < 22 ? '19' : '20';
+            const yearOfBirth = yearPrefix + yearPart;
+
+            return !isNaN(yearOfBirth) ? yearOfBirth : null;
+        }
+    </script>
+</body>
+</html>
